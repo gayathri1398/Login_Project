@@ -1,13 +1,20 @@
-import React from 'react';
-import image from '../images.png'
+import React,{ useState } from 'react';
+import MyDialog from './Dialogbox';
 
 
-const onClickHandler=()=>{
-    
-}
+
 
 const NewLoginPage = () => {
-    return (
+   const [isOpenCreateAccount,setIsOpenCreateAccount]=useState(false)
+
+   const openCreateAccount=()=> setIsOpenCreateAccount(true);
+   
+ 
+   
+    return <>
+    <MyDialog isOpen={isOpenCreateAccount} setIsOpen={setIsOpenCreateAccount} />
+
+    
         <div className='w-full'>
             <div className='w-1/3 bg-emerald-300  h-screen relative  '/>
                 <div className='absolute w-4/5 shadow-2xl inset-28 flex  rounded-md'> 
@@ -40,14 +47,16 @@ const NewLoginPage = () => {
               <input type="submit"
               value="Create Account" 
               className=' ml-4 p-1 text-black rounded-md hover:bg-emerald-500 hover:text-white'
-              onClick/>
+              onClick={openCreateAccount}/>
              </div>
            </div>
                 </div>
                 </div>
         </div>
         
-    )
+    </>
+        
+    
 }
 
 export default NewLoginPage
