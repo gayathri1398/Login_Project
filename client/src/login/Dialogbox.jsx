@@ -42,18 +42,18 @@ export default function MyModal({isOpen,setIsOpen}) {
                     Sign Up
                   </Dialog.Title>
                   <div className="mt-2">
-                  <div className='border-2 border-sky-100 h-3/6 rounded-md'>
+                  <div className=' h-3/6 rounded-md'>
               <div className='py-4 px-2'>
                 <label htmlFor="name" > Full Name</label><br/>
-                  <input type="text" id='name' placeholder='Gayathrivasu' className='w-full outline-none'/>
+                  <input type="text" id='name' placeholder='Gayathrivasu' className='w-full outline-none px-1 py-1 border-2 rounded-sm'/>
               </div>
               <div className='py-4 px-2'>
                 <label htmlFor="email" > Email Address</label><br/>
-                  <input type="email" id='email' placeholder='xyz@gmail.com' className='w-full outline-none'/>
+                  <input type="email" id='email' placeholder='xyz@gmail.com' className='w-full outline-none px-1 py-1 border-2 rounded-sm'/>
               </div>
               <div className='py-4 px-2'>
                 <label htmlFor="password" > Password</label><br/>
-                  <input type="password" id='password' placeholder='*****' className='w-full outline-none'/>
+                  <input type="password" id='password' placeholder='*****' className='w-full outline-none px-1 py-1 border-2 rounded-sm'/>
               </div>
             <div className='flex gap-3 w-full mb-2  px-2'>
             <input type="submit"
@@ -71,11 +71,7 @@ export default function MyModal({isOpen,setIsOpen}) {
            </div>
           
            
-         </div>
-         
-               
-
-                 
+         </div> 
                 </Dialog.Panel>
               </Transition.Child>
             </div>

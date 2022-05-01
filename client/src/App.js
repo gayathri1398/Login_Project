@@ -1,8 +1,4 @@
-
 import NewLoginPage from "./login/newLoginPage";
-import RegisterPage from "./login/registerPage";
-
-
 
 function App() {
   return (
