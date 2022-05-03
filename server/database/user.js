@@ -2,12 +2,14 @@
 import mongoose from "mongoose";
 import Jwt from "jsonwebtoken";
 import bcrypt, { hash } from 'bcrypt';
+import { otpGeneratorFunction } from '../services/otp.js';
 
 const UserSchema = new mongoose.Schema({
     fullname:{type:String,required:true},
     email:{type:String,required:true},
     password:{type:String,required:true},
-    phonenumber:[{type:Number}]
+    phonenumber:[{type:Number}],
+    otp:{type:String}
 },
 {
     timestamps:true
@@ -44,9 +46,21 @@ UserSchema.statics.checkByEmailAndPassword= async({email,password})=>{
     return emailChecking;
 }
 
+UserSchema.statics.checkByEmailAndOtp = async({email,otp})=>{
+    const emailChecking = await UserModel.findOne({email});
+   if(!emailChecking) {
+       throw new Error("User does not Exist!")
+   }
+//    const otpChecking = await UserModel.findOne({otp});
+//    if(otpChecking.length<1){
+//     throw new Error("otp does not Exist!")
+//    }
+   return emailChecking;
+}
+
 UserSchema.pre("save", function(next){
    const user = this;
-
+  
    if(!user.isModified("password")){
        return next()
    }
@@ -60,7 +74,7 @@ UserSchema.pre("save", function(next){
            if (error){
                return next(error)
            }
-
+   
            user.password= hash;
            return next()
        })
