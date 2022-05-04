@@ -2,6 +2,7 @@
 import {} from 'dotenv/config'
 
 import express from "express";
+import cors from "cors";
 
 // API
 import Auth from "./API/auth.js";
@@ -14,6 +15,7 @@ const app = express();
 
 // application middleware
 app.use(express.json());
+app.use(cors());
 
 
 // application routes

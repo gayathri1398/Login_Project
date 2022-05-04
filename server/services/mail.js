@@ -41,7 +41,5 @@ export const sendMail = async (params) => {
     }
   };
 
-  // const email = "gayathrivasu13@gmail.com";
-  // const otpGen ="s2i6l9"
 
 

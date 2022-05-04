@@ -5,7 +5,13 @@ import MyDialog from './Dialogbox';
 
 
 const NewLoginPage = () => {
-   const [isOpenCreateAccount,setIsOpenCreateAccount]=useState(false)
+   const [isOpenCreateAccount,setIsOpenCreateAccount]=useState(false);
+   const [userData,setUserData]=useState({
+     fullname:"",
+     email:"",
+     password:""
+
+   });
 
    const openCreateAccount=()=> setIsOpenCreateAccount(true);
    
