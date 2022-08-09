@@ -1,4 +1,5 @@
 import express from 'express';
+import passport from 'passport';
 
 
 
@@ -62,9 +63,21 @@ Router.post("/signin", async(req,res)=>{
         const user = await UserModel.checkByEmailAndPassword(req.body.credentials);
         
         const token =await user.generateJwtToken();
-
+         
         return res.status(200).json({token:token})
 
+    } catch (error) {
+        return res.status(500).json({error:error})
+    }
+})
+
+
+Router.get("/",passport.authenticate("jwt"),async(req,res)=>{
+        try {
+            console.log(req.session);
+            const {email,phoneNumber,fullname,address} =req.session.passport.user._doc;       // passport provides session(console.log(passport.session))=>we will get user._doc[object]
+            return res.json({user:{email,phoneNumber,fullname,address}});
+        
     } catch (error) {
         return res.status(500).json({error:error.message})
     }

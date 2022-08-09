@@ -1,14 +1,20 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
-export default function MyModal({isOpen,setIsOpen}) {
+
+export default function MyDialog({isOpen,setIsOpen}) {
  
+  const [openOtpModel,setopenOtpModel] =useState(false);
+
+  // const otpFunction=()=>setopenOtpModel(true);
+
   function closeModal() {
     setIsOpen(false)
   }
 
   return (
     <>
+   
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -58,6 +64,7 @@ export default function MyModal({isOpen,setIsOpen}) {
             <div className='flex gap-3 w-full mb-2  px-2'>
             <input type="submit"
               value="Register" 
+              // onClick={otpFunction}
               className='shadow-md p-1 text-black rounded-md w-1/2 hover:bg-emerald-500 hover:text-white'/>
                <button
                       type="button"
@@ -78,6 +85,7 @@ export default function MyModal({isOpen,setIsOpen}) {
           </div>
         </Dialog>
       </Transition>
+      {/* <OtpPage openOtpModel={openOtpModel} setopenOtpModel={setopenOtpModel} /> */}
     </>
   )
 }

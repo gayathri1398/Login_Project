@@ -5,8 +5,11 @@ const MAIL_SETTINGS = {
     host: "smtp.gmail.com",
     service: 'gmail',
     auth: {
+      // user:"gayathrivasu13@gmail.com",
+      // pass: "BIRIyani@1",
       user:"gayathrivasu13@gmail.com",
-      pass: "BIRIyani@1",
+      pass: "efdfizzdtwzbvupu",
+  
     },
     tls: {
         // do not fail on invalid certs
@@ -28,7 +31,7 @@ export const sendMail = async (params) => {
         >
           <h2>Welcome to the club.</h2>
           <h4>You are officially In ✔</h4>
-          <p style="margin-bottom: 30px;">Pleas enter the sign up OTP to get started</p>
+          <p style="margin-bottom: 30px;">Please enter the sign up OTP to get started</p>
           <h1 style="font-size: 40px; letter-spacing: 2px; text-align:center;">${params.OTP}</h1>
      </div>
       `,
@@ -36,10 +39,10 @@ export const sendMail = async (params) => {
      
       return info;   
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       return false;
     }
   };
 
 
-
+  sendMail();

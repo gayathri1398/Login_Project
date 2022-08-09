@@ -16,8 +16,8 @@ const UserSchema = new mongoose.Schema({
 })
 
 UserSchema.methods.generateJwtToken = function(){
-    let token = Jwt.sign({user:this._id.toString()}, "UserToken");
-    return token;
+     Jwt.sign({user:this._id.toString()}, "UserToken");
+  
 }
 
 UserSchema.statics.checkByEmailAndPhone = async({email,phonenumber})=>{
@@ -34,7 +34,7 @@ UserSchema.statics.checkByEmailAndPassword= async({email,password})=>{
     // check email
    const emailChecking = await UserModel.findOne({email});
    if(!emailChecking) {
-       throw new Error("User does not Exist!")
+      throw new Error("User does not Exist!")
    }
     //    check password
     const passwordChecking = await bcrypt.compare(password, emailChecking.password)
